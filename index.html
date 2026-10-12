@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Flip // Simple & Fair 3D Coin Toss</title>
+  <meta name="description" content="A clean, simple, and realistic 3D coin toss website. Flip a virtual coin for quick decisions and track your heads and tails score.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <!-- Header with Sound Toggle -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">🪙</span>
+        <h1 class="logo-title">Coin Flip</h1>
+      </div>
+      <button id="sound-btn" class="icon-toggle-btn" title="Toggle Sound (M)" aria-label="Toggle Sound">
+        <span id="sound-icon">🔊</span>
+      </button>
+    </header>
+
+    <!-- Main Central Card -->
+    <main class="flip-card-container">
+      <!-- Live Result Announcement -->
+      <div class="result-area" aria-live="polite">
+        <span class="result-status" id="result-status">TAP COIN OR BUTTON TO FLIP</span>
+        <div class="result-title" id="result-title">Ready?</div>
+      </div>
+
+      <!-- 3D Coin Stage -->
+      <div class="coin-stage">
+        <div class="coin-wrapper" id="coin-wrapper">
+          <div class="coin-3d" id="coin" tabindex="0" role="button" aria-label="3D Coin, click or press space to toss">
+            <!-- Heads Face -->
+            <div class="coin-face coin-heads">
+              <div class="coin-relief">
+                <div class="emblem">
+                  <svg viewBox="0 0 100 100" class="emblem-svg" fill="currentColor">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <polygon points="50,20 59,38 79,41 64,56 68,76 50,66 32,76 36,56 21,41 41,38"/>
+                    <circle cx="50" cy="50" r="10" fill="#fff" opacity="0.4"/>
+                  </svg>
+                </div>
+                <span class="face-text">HEADS</span>
+                <span class="face-sub">LIBERTY</span>
+              </div>
+            </div>
+
+            <!-- 3D Coin Rim (Thickness) -->
+            <div class="coin-rim"></div>
+
+            <!-- Tails Face -->
+            <div class="coin-face coin-tails">
+              <div class="coin-relief">
+                <div class="emblem">
+                  <svg viewBox="0 0 100 100" class="emblem-svg" fill="currentColor">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <path d="M50,22 L56,36 L70,38 L60,49 L63,63 L50,56 L37,63 L40,49 L30,38 L44,36 Z" opacity="0.3"/>
+                    <text x="50" y="62" font-size="34" font-weight="bold" text-anchor="middle" font-family="'Outfit', sans-serif">1</text>
+                  </svg>
+                </div>
+                <span class="face-text">TAILS</span>
+                <span class="face-sub">ONE COIN</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Shadow -->
+          <div class="coin-shadow" id="coin-shadow"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-area">
+        <button id="flip-btn" class="btn-primary" type="button">
+          <span>Flip Coin</span>
+          <kbd class="btn-keyhint">Space</kbd>
+        </button>
+      </div>
+
+      <!-- Simple Score Counter -->
+      <footer class="score-board">
+        <div class="score-pill">
+          <span class="score-label">Heads</span>
+          <span class="score-value heads-val" id="heads-count">0</span>
+        </div>
+        <div class="score-pill">
+          <span class="score-label">Tails</span>
+          <span class="score-value tails-val" id="tails-count">0</span>
+        </div>
+        <div class="score-pill">
+          <span class="score-label">Total</span>
+          <span class="score-value" id="total-count">0</span>
+        </div>
+        <button id="reset-btn" class="btn-reset" title="Reset score" aria-label="Reset score">Reset</button>
+      </footer>
+    </main>
+
+    <!-- Simple Page Footer -->
+    <footer class="page-footer">
+      <p>Clean 3D Physics • Guaranteed 50/50 Fairness</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
